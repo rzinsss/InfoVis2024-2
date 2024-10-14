@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Incendios Forestales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        canvas {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gráfico de Barras Apiladas: Incendios Totales vs. Causados por Accidentes</h2>
+    <canvas id="stackedBarChart"></canvas>
+
+    <script>
+
+        const labels = ['2003','2004','2005','2006','2007','2008','2009',
+                        '2010','2011','2012','2013','2014','2015','2016',
+                        '2017','2018','2019','2020','2021','2022','2023']; 
+
+        const totalIncendios = [7572, 6430, 6653, 5396, 5143, 6975, 6157,
+                                4069, 4952, 5509, 5651, 6335, 8048, 6784,
+                                5274, 6081,	7219, 8127, 7101, 6947, 6982];
+
+        const incendiosAccidentes = [3820, 3070, 3192, 3258, 3286, 3996, 3336, 
+                                     2293, 3094, 2833, 3317, 3706, 4252, 4067, 
+                                     3314, 3801, 4241, 3792, 3239, 3098, 3398]; 
+
+        // Gráfico de Barras Apiladas
+        const ctx1 = document.getElementById('stackedBarChart').getContext('2d');
+        const stackedBarChart = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Incendios causados por otras causas',
+                        data: totalIncendios.map((total, index) => total - incendiosAccidentes[index]),
+                        backgroundColor: '#FFB74D'
+                    },
+                    {
+                        label: 'Incendios causados por accidentes',
+                        data: incendiosAccidentes,
+                        backgroundColor: '#EF5350'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Incendios'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
