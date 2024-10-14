@@ -15,6 +15,10 @@
         h2 {
             text-align: center;
         }
+        h3 {
+            text-align: center;
+            font-size: 15px;
+        }
         canvas {
             margin: 20px 0;
         }
@@ -22,32 +26,32 @@
 </head>
 <body>
 
-    <h2>Gráfico de Barras Apiladas: Incendios Totales vs. Causados por Accidentes</h2>
-    <canvas id="stackedBarChart"></canvas>
+    <h2>Comparativa de incendios totales versus incendios por accidentes en Chile (2000-2023)</h2>
+    <h3>fuente: CONAF</h3>
+    <canvas id="DoubleBarChart"></canvas>
 
     <script>
 
-        const labels = ['2003','2004','2005','2006','2007','2008','2009',
-                        '2010','2011','2012','2013','2014','2015','2016',
-                        '2017','2018','2019','2020','2021','2022','2023']; 
+        const labels = ['2003', '', '2004', '', '2005', '', '2006', '', '2007', '', '2008', '', '2009', '',
+                        '2010', '', '2011', '', '2012', '', '2013', '', '2014', '', '2015', '', '2016', '', 
+                        '2017', '', '2018', '', '2019', '', '2020', '', '2021', '', '2022', '', '2023']; 
 
-        const totalIncendios = [7572, 6430, 6653, 5396, 5143, 6975, 6157,
-                                4069, 4952, 5509, 5651, 6335, 8048, 6784,
-                                5274, 6081,	7219, 8127, 7101, 6947, 6982];
+        const totalIncendios = [7572, null, 6430, null, 6653, null, 5396, null, 5143, null, 6975, null, 6157, null,
+                                4069, null, 4952, null, 5509, null, 5651, null, 6335, null, 8048, null, 6784, null,
+                                5274, null, 6081, null,	7219, null, 8127, null, 7101, null, 6947, null, 6982];
 
-        const incendiosAccidentes = [3820, 3070, 3192, 3258, 3286, 3996, 3336, 
-                                     2293, 3094, 2833, 3317, 3706, 4252, 4067, 
-                                     3314, 3801, 4241, 3792, 3239, 3098, 3398]; 
-
-        // Gráfico de Barras Apiladas
-        const ctx1 = document.getElementById('stackedBarChart').getContext('2d');
-        const stackedBarChart = new Chart(ctx1, {
+        const incendiosAccidentes = [3820, null, 3070, null, 3192, null, 3258, null, 3286, null, 3996, null, 3336, null, 
+                                     2293, null, 3094, null, 2833, null, 3317, null, 3706, null, 4252, null, 4067, null, 
+                                     3314, null, 3801, null, 4241, null, 3792, null, 3239, null, 3098, null, 3398]; 
+                                     
+        const ctx1 = document.getElementById('DoubleBarChart').getContext('2d');
+        const DoubleBarChart = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Incendios causados por otras causas',
+                        label: 'Incendios provocados por otras causas',
                         data: totalIncendios.map((total, index) => total - incendiosAccidentes[index]),
                         backgroundColor: '#FFB74D'
                     },
@@ -61,20 +65,24 @@
             options: {
                 responsive: true,
                 scales: {
-                    x: {
-                        stacked: true
-                    },
                     y: {
-                        stacked: true,
                         beginAtZero: true,
                         title: {
                             display: true,
                             text: 'Número de Incendios'
                         }
+                    },
+                    x: {
+                        stacked: false,
+                        grid: {
+                            display: false
+                        }
                     }
-                }
+                },
+                categoryPercentage: 0.8
             }
-        });
+        }
+    );
     </script>
 </body>
 </html>
