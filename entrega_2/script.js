@@ -115,11 +115,43 @@ const regions = {
 
 let currentChart;
 
+let incendioAudio = new Audio("Efecto de sonido de incendio forestal HD.mp3");
+incendioAudio.loop = true;
+
+const incendiosPorRegion = {
+    "region-1": 24,   
+    "region-2": 26,  
+    "region-3": 304,  
+    "region-4": 1322,   
+    "region-5": 16749,  
+    "region-RM": 9266,
+    "region-6": 5354,
+    "region-7": 12794,
+    "region-8": 52652,
+    "region-9": 24355,
+    "region-10": 4254,
+    "region-11": 613,
+    "region-12": 387,
+    "region-14": 2607,
+    "region-15": 47,
+    "region-16": 2639,
+};
+
+function ajustarVolumen(regionId) {
+    const maxIncendios = 52652;
+    const incendios = incendiosPorRegion[regionId] || 0;
+    
+    // Normaliza el volumen entre 0.1 (mínimo) y 1 (máximo)
+    const volumen = Math.min(Math.max(incendios / maxIncendios, 0.1), 1);
+    incendioAudio.volume = volumen;
+}
+
 document.querySelectorAll('.region').forEach(region => {
     region.addEventListener('click', () => {
         document.querySelectorAll('.region').forEach(r => r.classList.remove('activar'));
         region.classList.toggle('activar');
 
+        const regionId = region.id;
         const regionInfo = regions[region.id];
         const regionName = document.getElementById('region-name');
         const regionDetails = document.getElementById('region-details');
@@ -153,5 +185,18 @@ document.querySelectorAll('.region').forEach(region => {
                 responsive: true
             }
         });
+
+        ajustarVolumen(regionId);
+        if (incendioAudio.paused) {
+            incendioAudio.play();
+        }
     });
+});
+
+document.addEventListener('click', (event) => {
+    const isRegionClick = event.target.classList.contains('region');
+    if (!isRegionClick) {
+        incendioAudio.pause();
+        incendioAudio.currentTime = 0; // Reinicia el sonido
+    }
 });

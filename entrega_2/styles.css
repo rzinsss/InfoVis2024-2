@@ -15,9 +15,9 @@ body {
     white-space: nowrap;
     color: #333;
     font-weight: bold;
-    position: relative; /* Añadir */
-    top: 20px; /* Ajusta el valor según necesites */
-    margin: 0; /* Elimina el margen para evitar interferencias */
+    position: relative;
+    top: 20px;
+    margin: 0; 
     width: 100%;
     text-align: center;
 }
@@ -25,33 +25,33 @@ body {
 #container {
     display: flex;
     margin: 80px 0 0 0;
-    justify-content: flex-start; /* Alinear los elementos al inicio (izquierda) */
+    justify-content: flex-start; 
     align-items: stretch;
-    gap: 30px; /* Espacio entre el mapa y la caja de información */
+    gap: 30px;
     width: 100%;
-    height: calc(100vh - 70px); /* Resta la altura del título */
-    padding-left: 20px; /* Margen izquierdo para el contenedor */
+    height: calc(100vh - 70px); 
+    padding-left: 20px; 
 }
 
 #map-container {
-    width: 60%; /* Ajuste para el mapa más grande */
-    max-width: 800px; /* Tamaño máximo del mapa */
+    width: 60%;
+    max-width: 800px; 
     height: 100%;
     display: flex;
-    justify-content: flex-start; /* Centrar el contenido del mapa */
+    justify-content: flex-start; 
     align-items: center;
 }
 
 #region-info {
-    width: 40%; /* Ajusta según tu diseño */
+    width: 40%; 
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); 
-    border: 2px solid #ddd; /* Define el grosor y color del borde */
-    border-radius: 8px; /* Añadir bordes redondeados opcionales */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra para darle más definición */
-    height: 90%; /* Ajusta el alto para evitar el desplazamiento */
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 90%; 
     box-sizing: border-box; 
-    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+    overflow-y: auto; 
 }
 
 .region {
@@ -88,10 +88,10 @@ h2 {
 }
 
 #pieChart {
-    max-width: 300px; /* Ancho máximo del gráfico */
-    max-height: 300px; /* Alto máximo del gráfico */
-    width: 100%; /* Ajustar el ancho al contenedor */
-    height: auto; /* Ajustar la altura automáticamente */
-    margin: 0 auto; /* Centrar el gráfico */
+    max-width: 300px; 
+    max-height: 300px; 
+    width: 100%; 
+    height: auto; 
+    margin: 0 auto;
     display: block;
 }
