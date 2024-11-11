@@ -145,7 +145,7 @@ document.querySelectorAll('.region').forEach(region => {
                 datasets: [{
                     label: 'Causas de Incendios',
                     data: [accidentData, otherData],
-                    backgroundColor: ['#ff5722', '#42a5f5'], 
+                    backgroundColor: ['#da0d0d', '#f78214'], 
                     hoverOffset: 4
                 }]
             },
