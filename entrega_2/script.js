@@ -137,13 +137,39 @@ const incendiosPorRegion = {
     "region-16": 2639,
 };
 
+const PorcentajeIncendiosPorRegion = {
+    "region-1": 54.3,   
+    "region-2": 42.2,  
+    "region-3": 24.0,  
+    "region-4": 63.9,   
+    "region-5": 73.6,  
+    "region-RM": 84.2,
+    "region-6": 81.7,
+    "region-7": 81.5,
+    "region-8": 35.5,
+    "region-9": 40.7,
+    "region-10": 87.3,
+    "region-11": 69.9,
+    "region-12": 78.1,
+    "region-14": 77.6,
+    "region-15": 63.8,
+    "region-16": 52.5,
+};
+
 function ajustarVolumen(regionId) {
-    const maxIncendios = 52652;
-    const incendios = incendiosPorRegion[regionId] || 0;
+    const maxIncendios = 100.0;
+    const incendios = PorcentajeIncendiosPorRegion[regionId] || 0;
     
-    // Normaliza el volumen entre 0.1 (mínimo) y 1 (máximo)
     const volumen = Math.min(Math.max(incendios / maxIncendios, 0.1), 1);
     incendioAudio.volume = volumen;
+}
+
+function ColorSegunIncendio(PorcentajeIncendio) {
+    if (PorcentajeIncendio > 75.0) return "#8B0000";
+    if (PorcentajeIncendio > 50.0) return "#B22222";
+    if (PorcentajeIncendio > 25.0) return "#FF7F7F"; 
+    if (PorcentajeIncendio > 0.0) return "#FFC0CB";  
+    return "#FFC0CB"; 
 }
 
 document.querySelectorAll('.region').forEach(region => {
@@ -190,6 +216,10 @@ document.querySelectorAll('.region').forEach(region => {
         if (incendioAudio.paused) {
             incendioAudio.play();
         }
+
+        const PorcentajeIncendio = PorcentajeIncendiosPorRegion[regionId] || 0;
+        const color = ColorSegunIncendio(PorcentajeIncendio);
+        region.style.fill = color;
     });
 });
 
@@ -197,6 +227,6 @@ document.addEventListener('click', (event) => {
     const isRegionClick = event.target.classList.contains('region');
     if (!isRegionClick) {
         incendioAudio.pause();
-        incendioAudio.currentTime = 0; // Reinicia el sonido
+        incendioAudio.currentTime = 0; 
     }
 });
