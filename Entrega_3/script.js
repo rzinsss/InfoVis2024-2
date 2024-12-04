@@ -149,33 +149,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleOrientation(event) {
-        const { beta, gamma } = event; // beta: front/back, gamma: left/right
-        let selectedRegion;
-
-        if (gamma < -10) {
-            selectedRegion = document.getElementById("region-1");
-        } else if (gamma >= -10 && gamma <= 10) {
-            selectedRegion = document.getElementById("region-2");
-        } else if (gamma > 10) {
-            selectedRegion = document.getElementById("region-3");
+        const { beta } = event; // Usaremos solo `beta` para este ejemplo
+        const betaRanges = [
+            { id: "region-15", range: [0, 11.25] },
+            { id: "region-1", range: [11.25, 22.5] },
+            { id: "region-2", range: [22.5, 33.75] },
+            { id: "region-3", range: [33.75, 45] },
+            { id: "region-4", range: [45, 56.25] },
+            { id: "region-5", range: [56.25, 67.5] },
+            { id: "region-RM", range: [67.5, 78.75] },
+            { id: "region-6", range: [78.75, 90] },
+            { id: "region-7", range: [90, 101.25] },
+            { id: "region-16", range: [101.25, 112.5] },
+            { id: "region-8", range: [112.5, 123.75] },
+            { id: "region-9", range: [123.75, 135] },
+            { id: "region-14", range: [135, 146.25] },
+            { id: "region-10", range: [146.25, 157.5] },
+            { id: "region-11", range: [157.5, 168.75] },
+            { id: "region-12", range: [168.75, 180] }
+        ];
+    
+        let selectedRegion = null;
+    
+        for (const { id, range } of betaRanges) {
+            if (beta >= range[0] && beta <= range[1]) {
+                selectedRegion = document.getElementById(id);
+                break;
+            }
         }
-
+    
         if (selectedRegion && selectedRegion !== currentRegion) {
             if (currentRegion) currentRegion.classList.remove("activar");
             selectedRegion.classList.add("activar");
             currentRegion = selectedRegion;
-
-            const regionId = selectedRegion.id; // ID de la región actual
+    
+            const regionId = selectedRegion.id;
             const name = data[regionId].name;
+    
+            // Actualizar información
             regionName.textContent = name;
-            regionDetails.textContent = `Datos relevantes sobre ${name}.`;
-
+            regionDetails.textContent = data[regionId].details;
+    
+            // Reproducir sonido dinámico
             playDynamicSound(regionId);
-
+    
+            // Guardar región explorada
             saveRegion(name);
-
-            // Play associated sound
-            playSound(name);
+    
+            // Reproducir sonido asociado
+            playSound(regionId);
         }
     }
 
@@ -218,7 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function saveRegion(name) {
         if (!exploredRegions.includes(name)) {
             exploredRegions.push(name);
-            alert(`Has explorado: ${exploredRegions.join(", ")}`);
         }
     }
 });
