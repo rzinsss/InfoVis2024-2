@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    
+    overflow: hidden;
+    background-color: #f4f4f4;
+    justify-content: flex-start;
+}
+
+#main-title {
+    font-size: 2rem;
+    white-space: nowrap;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+    margin: 0; 
+    width: 100%;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    margin: 80px 0 0 0;
+    justify-content: flex-start; 
+    align-items: stretch;
+    gap: 30px;
+    width: 100%;
+    height: calc(100vh - 70px); 
+    padding-left: 20px; 
+}
+
+#map-container {
+    width: 60%;
+    max-width: 800px; 
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+#region-info {
+    width: 40%; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 90%; 
+    box-sizing: border-box; 
+    overflow-y: auto; 
+}
+
+.region {
+    fill: #484848;
+    cursor: pointer;
+    transition: fill 0.3s, transform 0.3s;
+}
+
+.region:hover {
+    fill: #007bff;
+}
+
+.activar {
+    fill: #ff5722;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#region-name {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#region-details {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+#pieChart {
+    max-width: 300px; 
+    max-height: 300px; 
+    width: 100%; 
+    height: auto; 
+    margin: 0 auto;
+    display: block;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        fill-opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        fill-opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        fill-opacity: 1;
+    }
+}
+
+.region.pulsar {
+    animation: pulse 1.5s infinite;
+}
+
+.region.activar {
+    fill: #ff5722; /* Color al seleccionar */
+    transform: scale(1.1); /* Agrandar ligeramente */
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
