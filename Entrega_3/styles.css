@@ -1,10 +1,10 @@
-/* Estilos generales */
 body {
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
     height: 100vh;
+    
     overflow: hidden;
     background-color: #f4f4f4;
     justify-content: flex-start;
@@ -17,47 +17,43 @@ body {
     font-weight: bold;
     position: relative;
     top: 20px;
-    margin: 0;
+    margin: 0; 
     width: 100%;
     text-align: center;
 }
 
-/* Contenedor principal */
 #container {
     display: flex;
     margin: 80px 0 0 0;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     align-items: stretch;
     gap: 30px;
     width: 100%;
-    height: calc(100vh - 70px);
-    padding-left: 20px;
+    height: calc(100vh - 70px); 
+    padding-left: 20px; 
 }
 
-/* Ajuste para el mapa */
 #map-container {
     width: 60%;
-    max-width: 800px;
+    max-width: 800px; 
     height: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     align-items: center;
 }
 
-/* Detalles de la región */
 #region-info {
-    width: 40%;
+    width: 40%; 
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 90%;
-    box-sizing: border-box;
-    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 90%; 
+    box-sizing: border-box; 
+    overflow-y: auto; 
 }
 
-/* Estilo de las regiones del mapa */
 .region {
     fill: #484848;
     cursor: pointer;
@@ -92,15 +88,14 @@ h2 {
 }
 
 #pieChart {
-    max-width: 300px;
-    max-height: 300px;
-    width: 100%;
-    height: auto;
+    max-width: 300px; 
+    max-height: 300px; 
+    width: 100%; 
+    height: auto; 
     margin: 0 auto;
     display: block;
 }
 
-/* Animación de pulsado */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -121,89 +116,51 @@ h2 {
 }
 
 .region.activar {
-    fill: #ff5722;
-    transform: scale(1.1);
+    fill: #ff5722; /* Color al seleccionar */
+    transform: scale(1.1); /* Agrandar ligeramente */
     transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-/* Estilo para el botón */
 #start-sounds {
-    font-size: 14px;
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    padding: 8px 16px; /* Relleno más pequeño */
+    background-color: #4CAF50; /* Color de fondo (verde) */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor en forma de mano */
+    margin-top: 20px; /* Separación del título hacia abajo */
+    width: auto; /* Hace que el ancho se ajuste al contenido */
+    display: block; /* Para que el margen horizontal funcione */
+    margin-left: auto; /* Centra el botón horizontalmente */
+    margin-right: auto; /* Centra el botón horizontalmente */
 }
 
 #start-sounds:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Efecto de cambio de color al pasar el ratón */
 }
 
-/* Ajustes para dispositivos más pequeños, como el Samsung S22 */
+/* Diseño para dispositivos pequeños (móviles) */
 @media (max-width: 767px) {
+    #start-sounds {
+      font-size: 14px; /* Reducir el tamaño de la fuente en móviles */
+      width: 80%; /* Hacer el botón más pequeño y adaptarlo al tamaño de la pantalla */
+      margin: 10px auto; /* Centrar el botón */
+      padding: 12px; /* Asegurar que el botón sea suficientemente grande en móviles */
+    }
+  
+    /* Ajustar otros elementos para pantallas pequeñas */
     body {
-        padding: 10px;
+      padding: 10px; /* Agregar un poco de espacio alrededor del contenido */
     }
-
-    #main-title {
-        font-size: 1.8rem; /* Reducir el tamaño del título en pantallas más pequeñas */
-        margin-top: 20px;
+  
+    #region-name, #region-details, #region-porcentage {
+      font-size: 14px; /* Reducir el tamaño de los textos en pantallas pequeñas */
     }
-
-    #container {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    #map-container {
-        width: 100%; /* El mapa ocupará toda la pantalla */
-        height: 60%; /* Reducir la altura del mapa para adaptarse mejor a dispositivos pequeños */
-    }
-
-    #region-info {
-        width: 90%; /* Ajustar la información a la pantalla más pequeña */
-        height: auto; /* Ajustar la altura */
-        padding: 15px;
-        margin-top: 10px;
-    }
-
-    /* Botón más pequeño y ajustado */
-    #start-sounds {
-        font-size: 14px;
-        width: 80%;
-        padding: 12px;
-        margin-top: 20px;
-    }
-
-    #pieChart {
-        width: 100%; /* El gráfico se ajusta al ancho de la pantalla */
-        height: auto;
-    }
-}
-
-/* Ajuste para el dispositivo S22 y pantallas más grandes */
-@media (min-width: 768px) {
-    #start-sounds {
-        font-size: 16px; /* Aumentar ligeramente el tamaño de fuente en pantallas más grandes */
-        width: auto; /* Centrado automático */
-        padding: 14px 24px;
-    }
-
-    #map-container {
-        width: 60%; /* Asegurar que el mapa ocupe el 60% en pantallas más grandes */
-    }
-
-    #region-info {
-        width: 35%; /* Asegurar que la información de la región no sea demasiado grande */
-    }
-}
+    
+    canvas {
+        max-width: 100%; /* Asegura que los gráficos se ajusten al tamaño de la pantalla */
+      }
+  
+    /* Otros ajustes como márgenes, tamaños de fuentes, etc. */
+  }
