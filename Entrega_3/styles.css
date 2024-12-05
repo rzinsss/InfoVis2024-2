@@ -120,3 +120,22 @@ h2 {
     transform: scale(1.1); /* Agrandar ligeramente */
     transition: transform 0.3s ease, fill 0.3s ease;
 }
+
+#start-sounds {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    padding: 8px 16px; /* Relleno más pequeño */
+    background-color: #4CAF50; /* Color de fondo (verde) */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor en forma de mano */
+    margin-top: 20px; /* Separación del título hacia abajo */
+    width: auto; /* Hace que el ancho se ajuste al contenido */
+    display: block; /* Para que el margen horizontal funcione */
+    margin-left: auto; /* Centra el botón horizontalmente */
+    margin-right: auto; /* Centra el botón horizontalmente */
+}
+
+#start-sounds:hover {
+    background-color: #45a049; /* Efecto de cambio de color al pasar el ratón */
+}
