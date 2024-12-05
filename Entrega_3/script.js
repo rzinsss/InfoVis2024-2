@@ -252,22 +252,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Definimos los rangos de beta para cada región
         const betaRanges = [
-            { id: "region-15", range: [57, 62] },
-            { id: "region-1", range: [63, 67] },
-            { id: "region-2", range: [68, 72] },
-            { id: "region-3", range: [73, 77] },
-            { id: "region-4", range: [78, 82] },
-            { id: "region-5", range: [83, 87] },
-            { id: "region-RM", range: [88, 92] },
-            { id: "region-6", range: [93, 97] },
-            { id: "region-7", range: [98, 102] },
-            { id: "region-16", range: [103, 107] },
-            { id: "region-8", range: [108, 112] },
-            { id: "region-9", range: [113, 117] },
-            { id: "region-14", range: [118, 122] },
-            { id: "region-10", range: [123, 127] },
-            { id: "region-11", range: [128, 132] },
-            { id: "region-12", range: [133, 137] }
+            { id: "region-15", range: [28, 32] },
+            { id: "region-1", range: [33, 37] },
+            { id: "region-2", range: [38, 42] },
+            { id: "region-3", range: [43, 47] },
+            { id: "region-4", range: [48, 52] },
+            { id: "region-5", range: [53, 57] },
+            { id: "region-RM", range: [58, 62] },
+            { id: "region-6", range: [63, 67] },
+            { id: "region-7", range: [68, 72] },
+            { id: "region-16", range: [73, 77] },
+            { id: "region-8", range: [78, 82] },
+            { id: "region-9", range: [83, 87] },
+            { id: "region-14", range: [88, 92] },
+            { id: "region-10", range: [93, 97] },
+            { id: "region-11", range: [98, 102] },
+            { id: "region-12", range: [103, 107] }
         ];
 
         // Determinamos la región correspondiente
