@@ -140,27 +140,3 @@ h2 {
     background-color: #45a049; /* Efecto de cambio de color al pasar el ratón */
 }
 
-/* Diseño para dispositivos pequeños (móviles) */
-@media (max-width: 767px) {
-    #start-sounds {
-      font-size: 14px; /* Reducir el tamaño de la fuente en móviles */
-      width: 80%; /* Hacer el botón más pequeño y adaptarlo al tamaño de la pantalla */
-      margin: 10px auto; /* Centrar el botón */
-      padding: 12px; /* Asegurar que el botón sea suficientemente grande en móviles */
-    }
-  
-    /* Ajustar otros elementos para pantallas pequeñas */
-    body {
-      padding: 10px; /* Agregar un poco de espacio alrededor del contenido */
-    }
-  
-    #region-name, #region-details, #region-porcentage {
-      font-size: 14px; /* Reducir el tamaño de los textos en pantallas pequeñas */
-    }
-    
-    canvas {
-        max-width: 100%; /* Asegura que los gráficos se ajusten al tamaño de la pantalla */
-      }
-  
-    /* Otros ajustes como márgenes, tamaños de fuentes, etc. */
-  }

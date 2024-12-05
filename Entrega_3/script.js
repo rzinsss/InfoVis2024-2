@@ -192,35 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("start-sounds").addEventListener("click", () => {
         const button = document.getElementById("start-sounds");
-    
-        // Verifica si los sonidos están reproduciéndose o no
-        if (button.textContent === "Iniciar Sonidos") {
-            // Cambiar el texto del botón a "Reproduciendo Sonidos"
-            button.textContent = "Reproduciendo Sonidos"; 
-            
-            // Iniciar los sonidos
-            sounds.nature.play();
-            sounds.fire.play();
-            
-            // Opcional: deshabilitar el botón para evitar múltiples clics
-    
-        } else if (button.textContent === "Reproduciendo Sonidos") {
-            // Cambiar el texto del botón a "Iniciar Sonidos"
-            button.textContent = "Iniciar Sonidos";
-            
-            // Detener los sonidos
-            sounds.nature.pause();
-            sounds.fire.pause();
-            
-            // Reestablecer el tiempo de los sonidos a 0 para que no sigan sonando en la siguiente reproducción
-            sounds.nature.currentTime = 0;
-            sounds.fire.currentTime = 0;
-    
-            // Habilitar el botón nuevamente para permitir iniciar los sonidos
-            button.disabled = false;
-        }
+        button.textContent = "Reproduciendo Sonidos"
+        sounds.nature.play();
+        sounds.fire.play();
+        alert("Sonidos iniciados.");
+        button.disabled = true;
     });
-    
 
     function ColorSegunIncendio(PorcentajeIncendio) {
         if (PorcentajeIncendio > 75.0) return "#8B0000"; // Rojo oscuro
